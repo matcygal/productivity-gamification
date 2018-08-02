@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, ScrollView, TouchableOpacity, Modal, View, TouchableHighlight } from 'react-native';
 
-import Note from './Note';
 import HeaderMenu from './HeaderMenu';
 import FooterMenu from './FooterMenu';
 
@@ -12,15 +11,7 @@ import material from '../../native-base-theme/variables/material';
 import * as firebase from 'firebase';
 
 
-// var config = {
-//     apiKey: "AIzaSyDgIMIAn6QWmxB2k522j8ILmOPIZCmceNs",
-//     authDomain: "trzypoziomy-71583.firebaseapp.com",
-//     databaseURL: "https://trzypoziomy-71583.firebaseio.com",
-//     projectId: "trzypoziomy-71583",
-//     storageBucket: "trzypoziomy-71583.appspot.com",
-//     messagingSenderId: "956046279906"
-//   };
-//   firebase.initializeApp(config);
+firebase config
 
 export default class Main extends React.Component {
 
@@ -38,9 +29,6 @@ export default class Main extends React.Component {
       }
 
   render() {
-      let notes = this.state.noteArray.map((val, key) => {
-          return <Note key={key} keyval={key} val={val} deleteMethod={  () => this.deleteNote(key) } />
-      });
     return (
     <StyleProvider style={getTheme(material)}>
         <Container style={styles.container}>
@@ -85,7 +73,6 @@ export default class Main extends React.Component {
                 </Body>
                 </CardItem>
             </Card>
-                {notes}
             </ScrollView>
             <FooterMenu />
             <TouchableOpacity style={styles.addButton} onPress={() => {this.setModalVisible(true);}}>
